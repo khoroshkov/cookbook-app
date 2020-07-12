@@ -12,9 +12,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #FFF;
-  min-height: 200px;
-  width: 500px;
+  background-color: #fff;
+  /* min-height: 200px;
+  min-width: 200px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -37,6 +37,7 @@
 
 .modalTitle {
   font-weight: bold;
+  margin: 0 auto;
 }
 
 .modalFooter {
@@ -47,4 +48,66 @@
 
 .modalFooter button:last-child {
   margin-left: 10px;
+}
+
+.modalFooter > button {
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  height: 36px;
+  line-height: 36px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.editBtn {
+  background-color: rgb(255, 102, 0);
+  width: 160px;
+}
+
+.btnIcon {
+  margin-left: 20px;
+  font-size: 1.2rem;
+}
+
+.cancelBtn {
+  background-color: rgb(255, 1, 1);
+}
+
+.modalFooter > button:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+input[type="text"],
+textarea {
+  border: 1px solid #dedede;
+  border-radius: 2px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+label {
+  text-transform: uppercase;
+  padding-left: 10px;
+  color: rgb(255, 102, 0);
+  letter-spacing: 1px;
+}
+
+/*****media******/
+
+@media screen and (min-width: 601px) {
+  .modalWindow {
+    min-height: 200px;
+    min-width: 500px;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useCallback } from "react";
 import Portal from "../Portal/Portal";
 import { GlobalContext } from "../../context/globalState";
 import styles from "./ModalWindow.module.css";
@@ -8,6 +8,23 @@ export const ModalWindow = ({ isOpen, recipe, onCancel }) => {
   const { editRecipe } = useContext(GlobalContext);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const escFunction = useCallback(
+    (event) => {
+      if (event.keyCode === 27) {
+        onCancel();
+      }
+    },
+    [onCancel]
+  );
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, [escFunction]);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -19,8 +36,6 @@ export const ModalWindow = ({ isOpen, recipe, onCancel }) => {
       createdAt: recipe.createdAt,
     };
 
-    console.log(newRecipe);
-
     editRecipe(newRecipe);
 
     onCancel();
@@ -31,10 +46,10 @@ export const ModalWindow = ({ isOpen, recipe, onCancel }) => {
       {isOpen && (
         <Portal>
           <div className={styles.modalOverlay}>
-            <div className={styles.modalWindow}>
+            <form onSubmit={onSubmit} className={styles.modalWindow}>
               <div className={styles.modalHeader}>
                 <div className={styles.modalTitle}>
-                  Edit your {recipe.title}
+                  Edit your {recipe.title} recipe
                 </div>
               </div>
               <div className={styles.modalBody}>
@@ -49,7 +64,7 @@ export const ModalWindow = ({ isOpen, recipe, onCancel }) => {
                   </div>
                   <div>
                     <label htmlFor="description">Description</label>
-                    <input
+                    <textarea
                       type="text"
                       value={description || recipe.description}
                       onChange={(e) =>
@@ -60,12 +75,18 @@ export const ModalWindow = ({ isOpen, recipe, onCancel }) => {
                 </form>
               </div>
               <div className={styles.modalFooter}>
-                <button onClick={onSubmit}>
-                  <MdSend className="btn-icon" /> Edit recipe
+                <button
+                  type="submit"
+                  onClick={onSubmit}
+                  className={styles.editBtn}
+                >
+                  Edit recipe <MdSend className={styles.btnIcon} />
                 </button>
-                <button onClick={onCancel}>Cancel</button>
+                <button onClick={onCancel} className={styles.cancelBtn}>
+                  Cancel
+                </button>
               </div>
-            </div>
+            </form>
           </div>
         </Portal>
       )}

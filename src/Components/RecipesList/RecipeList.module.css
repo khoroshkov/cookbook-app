@@ -1,0 +1,15 @@
+.myRecipesTitle {
+  font-size: 16px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-top: 10px;
+}
+
+.recipesList {
+  padding: 0;
+}
+
+.recipesList > li {
+  list-style: none;
+}

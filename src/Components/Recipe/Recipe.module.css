@@ -1,0 +1,87 @@
+.recipeContainer {
+  border: 1px solid #dedede;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  padding: 10px 0;
+}
+
+.recipeContainer:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.recipeInfo {
+  margin-bottom: 10px;
+}
+
+.recipeItemHeader {
+  text-transform: uppercase;
+  padding-left: 15px;
+  color: rgb(255, 102, 0);
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.recipeItemTitle {
+  text-transform: capitalize;
+  color: rgb(87, 87, 87);
+  font-weight: normal;
+  letter-spacing: 0;
+}
+
+.recipeItemDescription {
+  text-transform: uppercase;
+  padding-left: 10px;
+  color: rgb(255, 102, 0);
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.descriptionText {
+  color: rgb(87, 87, 87);
+  padding-left: 8px;
+  margin: 0 0 15px 0;
+  padding-top: 10px;
+}
+
+.createdTitle {
+  color: rgba(87, 87, 87, 0.8);
+  padding-left: 15px;
+}
+
+.recipeBtnContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}
+
+.recipeBtnContainer > button {
+  cursor: pointer;
+}
+
+.recipeBtnContainer > button:not(:last-child) {
+  margin-right: 10px;
+}
+
+.clearBtn,
+.editBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 150ms ease-in-out;
+}
+
+.clearBtn {
+  color: #ff0000;
+}
+
+.editBtn {
+  color: #0dec32;
+}
+
+.clearBtn:hover,
+.editBtn:hover {
+  transform: scale(1.2);
+}

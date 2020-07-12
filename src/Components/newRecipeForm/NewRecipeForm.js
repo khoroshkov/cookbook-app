@@ -1,34 +1,71 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../../context/globalState";
 import moment from "moment";
+import { CSSTransition } from "react-transition-group";
+import { Alert } from "../Alert/Alert";
 import { MdSend } from "react-icons/md";
 import styles from "./NewReciveForm.module.css";
+import pop from "../../transitions/alertTransition.module.css";
 
 export const NewRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [alert, setAlert] = useState({ show: false });
 
   const { addRecipe } = useContext(GlobalContext);
+
+  const handleAlert = ({ type, text }) => {
+    setAlert({ show: true, type, text });
+
+    setTimeout(() => {
+      setAlert({ show: false });
+    }, 2000);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const newRecipe = {
-      id: Math.floor(Math.random() * 100000000),
-      title,
-      description,
-      createdAt: moment().format("LLL"),
-    };
+    if (title !== "" && description !== "") {
+      const newRecipe = {
+        id: Math.floor(Math.random() * 100000000),
+        title,
+        description,
+        createdAt: moment().format("LLL"),
+      };
 
-    addRecipe(newRecipe);
+      addRecipe(newRecipe);
 
-    setTitle("");
-    setDescription("");
+      setTitle("");
+      setDescription("");
+      handleAlert({
+        type: "success",
+        text: "Your new fantastic recipe has been saved",
+      });
+    } else {
+      handleAlert({
+        type: "danger",
+        text:
+          "Please, add title and description of Your new fantastic cooking recipe",
+      });
+      return;
+    }
   };
 
   return (
     <div>
-      <h3>Add your new recipe</h3>
+      {alert.show && (
+        <CSSTransition
+          in={alert}
+          timeout={300}
+          // transitionName="enter"
+          classNames={pop}
+          unmountOnExit
+        >
+          <Alert type={alert.type} text={alert.text} />
+        </CSSTransition>
+      )}
+
+      <h3 className={styles.newRecipeFormTitle}>Add your new recipe</h3>
       <form onSubmit={onSubmit}>
         <div>
           <label htmlFor="title">Title</label>
