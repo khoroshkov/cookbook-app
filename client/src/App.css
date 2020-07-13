@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url("./img/cookbook-pattern.svg");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 15px 10px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+
+
+/*media*/
+
+@media screen and (min-width: 768px) {
+  .container {
+    min-width: 700px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    min-width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    padding: 0 30px;
+  }
+}
