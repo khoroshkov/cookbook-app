@@ -68,6 +68,7 @@
   height: 36px;
   line-height: 36px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
 }
 
 .editBtn {

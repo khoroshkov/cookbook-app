@@ -1,0 +1,17 @@
+@value variables: '../../stylesheets/vars.css';
+@value accentColor, mainLightGreyColor from variables;
+
+.container {
+  text-align: center;
+  border: 1px solid mainLightGreyColor;
+  padding: 15px 10px;
+}
+
+.emptyListTitle {
+  color: accentColor;
+  font-size: 16px;
+}
+
+.emptyListText {
+  color: mainLightGreyColor;
+}

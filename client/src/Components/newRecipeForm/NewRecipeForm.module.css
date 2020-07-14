@@ -22,7 +22,7 @@ textarea {
 }
 
 .newRecipeFormTitle {
-  margin: 0;
+  margin: 0 0 10px 0;
   text-align: center;
   font-family: "OswaldRegular";
   text-transform: uppercase;
@@ -55,6 +55,7 @@ textarea {
   line-height: 36px;
   width: 160px;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  outline: none;
 }
 
 .btn:hover {

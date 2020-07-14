@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/globalState";
 import { Recipe } from "../Recipe/Recipe";
 import Loader from "react-loader-spinner";
+import { EmptyList } from "../EmptyList/EmptyList";
 import styles from "./RecipeList.module.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -24,6 +25,7 @@ export const RecipesList = () => {
             className={styles.loader}
           />
         )}
+        {!recipes.length && <EmptyList />}
         {recipes.map((recipe) => (
           <Recipe key={recipe._id} recipe={recipe} />
         ))}
