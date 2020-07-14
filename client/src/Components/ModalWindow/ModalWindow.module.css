@@ -1,3 +1,6 @@
+@value variables: '../../stylesheets/vars.css';
+@value accentColor, mainLightGreyColor from variables;
+
 .modalOverlay {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
@@ -13,8 +16,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-  /* min-height: 200px;
-  min-width: 200px; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,7 +37,9 @@
 }
 
 .modalTitle {
+  font-family: "OswaldRegular";
   font-weight: bold;
+  text-transform: uppercase;
   margin: 0 auto;
 }
 
@@ -68,12 +71,12 @@
 }
 
 .editBtn {
-  background-color: rgb(255, 102, 0);
+  background-color: accentColor;
   width: 160px;
 }
 
 .btnIcon {
-  margin-left: 20px;
+  margin-left: 15px;
   font-size: 1.2rem;
 }
 
@@ -90,6 +93,7 @@ textarea {
   border: 1px solid #dedede;
   border-radius: 2px;
   display: block;
+  color: mainLightGreyColor;
   font-size: 16px;
   padding: 10px;
   margin-bottom: 15px;
@@ -99,15 +103,20 @@ textarea {
 label {
   text-transform: uppercase;
   padding-left: 10px;
-  color: rgb(255, 102, 0);
+  color: accentColor;
   letter-spacing: 1px;
 }
 
 /*****media******/
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 768px) {
   .modalWindow {
     min-height: 200px;
-    min-width: 500px;
+    min-width: 680px;
   }
+}
+
+/*media*/
+
+@media screen and (min-width: 1024px) {
 }

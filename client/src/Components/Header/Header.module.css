@@ -2,8 +2,9 @@
 @value accentColor from variables;
 
 .mainHeader {
-  padding-top: 20px;
+  padding-top: 10px;
   text-align: center;
+  font-family: RobotoRegular;
   font-size: 18px;
   letter-spacing: 1px;
 }
@@ -13,11 +14,17 @@
   color: accentColor;
 }
 
+.headerIcon {
+  width: 18px;
+  padding-bottom: 10px;
+  transform: rotate(20deg);
+}
+
 /*media*/
 
 @media screen and (min-width: 1200px) {
   .mainHeader {
-    padding-top: 30px;
+    padding-top: 40px;
     font-size: 22px;
     margin-bottom: 20px;
   }

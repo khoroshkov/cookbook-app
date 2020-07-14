@@ -1,4 +1,5 @@
 .myRecipesTitle {
+  font-family: "OswaldRegular";
   font-size: 16px;
   text-align: center;
   text-transform: uppercase;
@@ -12,4 +13,10 @@
 
 .recipesList > li {
   list-style: none;
+}
+
+.loader {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
 }

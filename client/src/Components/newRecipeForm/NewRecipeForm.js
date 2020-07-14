@@ -1,11 +1,9 @@
 import React, { useState, useContext } from "react";
 import { GlobalContext } from "../../context/globalState";
 import moment from "moment";
-import { CSSTransition } from "react-transition-group";
 import { Alert } from "../Alert/Alert";
 import { MdSend } from "react-icons/md";
-import styles from "./NewReciveForm.module.css";
-import pop from "../../transitions/alertTransition.module.css";
+import styles from "./NewRecipeForm.module.css";
 
 export const NewRecipeForm = () => {
   const [title, setTitle] = useState("");
@@ -52,18 +50,8 @@ export const NewRecipeForm = () => {
   };
 
   return (
-    <div>
-      {alert.show && (
-        <CSSTransition
-          in={alert}
-          timeout={300}
-          // transitionName="enter"
-          classNames={pop}
-          unmountOnExit
-        >
-          <Alert type={alert.type} text={alert.text} />
-        </CSSTransition>
-      )}
+    <div className={styles.newRecipeFormContainer}>
+      {alert.show && <Alert type={alert.type} text={alert.text} />}
 
       <h3 className={styles.newRecipeFormTitle}>Add your new recipe</h3>
       <form onSubmit={onSubmit}>
@@ -76,7 +64,7 @@ export const NewRecipeForm = () => {
             placeholder="Enter recipe title..."
           />
         </div>
-        <div>
+        <div className={styles.descContainer}>
           <label htmlFor="description">Description</label>
           <textarea
             type="text"

@@ -51,7 +51,7 @@ export const ModalWindow = ({ isOpen, recipe, onCancel }) => {
             <form onSubmit={onSubmit} className={styles.modalWindow}>
               <div className={styles.modalHeader}>
                 <div className={styles.modalTitle}>
-                  Edit your {recipe.title} recipe
+                  Edit your "{recipe.title}" recipe
                 </div>
               </div>
               <div className={styles.modalBody}>

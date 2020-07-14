@@ -3,14 +3,14 @@
 }
 
 body {
-  background: url("./img/cookbook-pattern.svg");
+  background: url("../src/assets/img/cookbook-pattern.svg");
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: "Rokkitt", sans-serif;
 }
 
 .container {
