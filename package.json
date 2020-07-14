@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "my CookBook App (MERN)",
   "main": "server.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
     "build": "cd client && npm run build",
     "start": "node server",
